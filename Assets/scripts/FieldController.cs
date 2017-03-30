@@ -61,6 +61,19 @@ public class FieldController : MonoBehaviour {
 
     private void RunSelectedPlay()
     {
-        Play selectedPlay = GameController.Instance.GetSelectedPlay();
+        Debug.Log("Running Play.");
+        //Play selectedPlay = GameController.Instance.GetSelectedPlay();
+
+        //Route[] routes = selectedPlay.routes;
+        Player[] players = instance.GetComponentsInChildren<Player>();
+        foreach (Player player in players){
+            Rigidbody2D rigidBody = player.GetComponent<Rigidbody2D>();
+            rigidBody.velocity = new Vector2(1, 0);
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        Destroy(other.gameObject);
     }
 }

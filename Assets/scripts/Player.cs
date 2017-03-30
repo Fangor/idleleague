@@ -7,5 +7,6 @@ public class Player : MonoBehaviour {
     public float speed;
     public float strength;
     
+
      
 }
